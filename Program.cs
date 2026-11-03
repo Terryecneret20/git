@@ -10,25 +10,31 @@ namespace git
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("==Utflyktsgeneratorn==");
+            Console.WriteLine("== Utflyktsgeneratorn ==");
 
-            Console.WriteLine("Hur stor är din budget");
+            Console.Write("Hur stor är din budget? ");
             int budget = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine(" Hur många ska följa med? ");
+            Console.Write("Hur många ska följa med? ");
             int antal = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Vad kostar resan per person?");
+            Console.Write("Vad kostar resan per person? ");
             int resan = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("hur mycket kostar maten");
+            Console.Write("Hur mycket kostar maten? ");
             int mat = Convert.ToInt32(Console.ReadLine());
 
-            //Räknar ut hur mycket maten och resan kostar för en person.
-            int KostnadPerPerson = resan + mat;
+            Console.Write("Hur stor rabatt har alla? ");
+            int rabatt = Convert.ToInt32(Console.ReadLine());
 
-            // gruppens totala kostnad
-            int TotalKostnad = KostnadPerPerson * antal;
+            Console.Write("Vad är kostnad för entré? ");
+            int entre = Convert.ToInt32(Console.ReadLine());
+
+            // Räknar ut hur mycket maten och resan kostar för en person.
+            int KostnadPerPerson = resan + mat + entre;
+
+            // Gruppens totala kostnad
+            int TotalKostnad = KostnadPerPerson * antal - rabatt;
             Console.WriteLine();
 
             Console.WriteLine("Kostnad per person: " + KostnadPerPerson + " kr");
@@ -36,11 +42,11 @@ namespace git
 
             if (TotalKostnad > budget)
             {
-                Console.WriteLine("du har inte tilräkligt med pengar");
+                Console.WriteLine("Du har inte tillräkligt med pengar.");
             }
             else if (TotalKostnad <= budget )
             {
-                Console.WriteLine("du har tillräkligt med pengar");
+                Console.WriteLine("Du har tillräkligt med pengar.");
             }
 
         }
